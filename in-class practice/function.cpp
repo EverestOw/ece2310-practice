@@ -9,26 +9,34 @@
 *   @param y : (int)
 *   @return true: x is greater than y
 */
-#include <cstdio>
+#include <fstream>
+#include <iostream>
 
-bool isGreaterThan(double x, double y)
-{
-    return x > y;
+void readFile(std::string fileName) {
+    /*
+        reads file
+    */
+    //  Open file
+    std::ifstream inputFile(fileName);
+
+    //  Check if file is valid
+    if (!inputFile.is_open()) { 
+        std::cerr << "Error opening: " << fileName << "\n";
+        return;
+     }
+
+    std::string line;
+    while(std::getline(inputFile,line)) {
+
+    } 
+
+
 }
 
-int main() 
-{
-    double x = 33;
-    int y = 7;
+int main() {
+        std::ifstream inputFile("fileInput.csv");
 
-    if(isGreaterThan(x, y))
-    {
-        printf("%f > %i", x, y);
-    }
-    else
-    {
-        printf("%f <= %i", x,y);
-    }
+        if (!inputFile.is_open()) { return 1; }
 
     return 0;
 }
