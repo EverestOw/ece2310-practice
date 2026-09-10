@@ -22,6 +22,56 @@ using namespace std;
 void promptFile(vector<string> &); 
 void printVec(vector<string>);
 
+int ranGen();
+
+bool readFile(string, vector<string> &);
+bool writeFile(string, const vector<string>&, const vector<string>&);
+
+
+//------------------------MAIN BODY-------------------------------------------
+int main()
+{
+    srand(time(nullptr));
+    vector<string> roster;
+    vector<string> qBank;
+    // readFile("2310_F26_Rosters.csv", roster);
+    readFile("2310_F26_Rosters.csv", roster);
+    readFile("Questions.csv", qBank);
+    // printVec(roster);
+    // printVec(qBank);
+
+    // cout << "Size of roster: " << roster.size() << endl; 
+    // cout << "Size of qBank: " << qBank.size() << endl;
+
+    writeFile("Student_question_bank.csv",roster, qBank);
+
+    return 0;
+}
+
+//------------------------DECLARATIONS-------------------------------------------
+/**
+ * @brief prompts the user to give a file to read
+ * 
+ */
+void promptFile(vector<string> & v){
+    cout << "file to read?\n";
+    string myFile = "";
+    cin >> myFile;
+    readFile(myFile, v);
+}
+
+
+/**
+ * @brief prints out the elements in v
+ * 
+ * @param v: vector<string>
+ */
+void printVec(vector<string> v){
+    for(int i = 0; i < v.size(); i++){
+        cout << v[i] << endl;
+    }
+}
+
 /**
  * @brief randomly returns a number from 0 to 5.
  * - It is hardcoded to be from 0 to 5.
@@ -68,6 +118,7 @@ bool readFile(string filename, vector<string> & vec) {
 
     return true;
 }
+
 /**
  * @brief writes to filename with the first column from v0, second column from v1
  * 
@@ -75,14 +126,6 @@ bool readFile(string filename, vector<string> & vec) {
  * @param v0: vector<string> (for students names)
  * @param v1: vector<string> (for questions)
  * 
- * TO DO:
- * ​​Use pass by const reference (const vector<string> & v0, const vector<string> & v1)
- * as opposed to pass by value (vector<string> v0, vector<string> v1). 
- * 
- * What is the differennce between:
- * -  pass by reference (e.g. vector<string> & v0),
- * -  pass by value (e.g. vector<string> v0),
- * -  pass by const reference (e.g. const vector<string> & v0),
  * @return bool: indicates whether operation succeeded or not.
  */
 bool writeFile(string filename, const vector<string>& v0, const vector<string>& v1){
@@ -101,48 +144,4 @@ bool writeFile(string filename, const vector<string>& v0, const vector<string>& 
     outputFile.close();
 
     return true;
-}
-
-
-int main()
-{
-    srand(time(nullptr));
-    vector<string> roster;
-    vector<string> qBank;
-    // readFile("2310_F26_Rosters.csv", roster);
-    readFile("2310_F26_Rosters.csv", roster);
-    readFile("Questions.csv", qBank);
-    // printVec(roster);
-    // printVec(qBank);
-
-    // cout << "Size of roster: " << roster.size() << endl; 
-    // cout << "Size of qBank: " << qBank.size() << endl;
-
-    writeFile("Student_question_bank.csv",roster, qBank);
-
-    return 0;
-}
-
-//------------------------DECLARATIONS-------------------------------------------
-/**
- * @brief prompts the user to give a file to read
- * 
- */
-void promptFile(vector<string> & v){
-    cout << "file to read?\n";
-    string myFile = "";
-    cin >> myFile;
-    readFile(myFile, v);
-}
-
-
-/**
- * @brief prints out the elements in v
- * 
- * @param v: vector<string>
- */
-void printVec(vector<string> v){
-    for(int i = 0; i < v.size(); i++){
-        cout << v[i] << endl;
-    }
 }
