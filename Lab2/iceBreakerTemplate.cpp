@@ -1,5 +1,6 @@
 #include<iostream>
 #include<fstream>
+#include <vector>
 /**
  * TO DO: 
  * Add <vector>, <cstdlib>, and <ctime>​
@@ -44,19 +45,15 @@ int ranGen(){
  * 
  * @param filename :string 
  * @param vec: vector<string> &
- * 
- * TO DO: 
- * ​​​Return a bool instead in order to indicate whether the operation
- * succeeded or not
  */
-void readFile(string filename, vector<string> & vec) {
+bool readFile(string filename, vector<string> & vec) {
 
    ifstream inputFile(filename);
 
     //error handling
     if (!inputFile.is_open()) {
         cerr << "Error: Could not open file\n";
-        return;
+        return false;
     }
 
     string line;
@@ -66,7 +63,8 @@ void readFile(string filename, vector<string> & vec) {
     }
 
     inputFile.close();
-    return;
+
+    return true;
 }
 /**
  * @brief writes to filename with the first column from v0, second column from v1
@@ -110,16 +108,19 @@ int main()
     srand(time(nullptr));
     vector<string> roster;
     vector<string> qBank;
-    readFile("2310_F26_Rosters.csv", roster);
-    readFile("Questions.csv", qBank);
+    // readFile("2310_F26_Rosters.csv", roster);
+    cout << "read roster?: " << readFile("2310_F26_Rosters.csv", roster) << endl;
+    cout << "read dummy?: " << readFile("dummy", roster) << endl;
+    // readFile("Questions.csv", qBank);
     // printVec(roster);
     // printVec(qBank);
 
     // cout << "Size of roster: " << roster.size() << endl; 
     // cout << "Size of qBank: " << qBank.size() << endl;
 
-    writeFile("Student_question_bank.csv",roster, qBank);
+    // writeFile("Student_question_bank.csv",roster, qBank);
 
+    return 0;
 }
 
 //------------------------DECLARATIONS-------------------------------------------
