@@ -6,4 +6,6 @@
 ## Change log
 - add items here
 
-
+## TO-DOs
+[X] Implement 7 TO-DOs
+[ ] Display screenshot(s) of terminal output(s)
