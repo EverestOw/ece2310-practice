@@ -41,10 +41,12 @@ int ranGen(){
 }
 
 /**
- * @brief reads contents of filename and populates into vec
+ * @brief reads contents of filename and populates into vec.
  * 
  * @param filename :string 
  * @param vec: vector<string> &
+ * 
+ * @return bool: operation succeded.
  */
 bool readFile(string filename, vector<string> & vec) {
 
