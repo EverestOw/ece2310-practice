@@ -87,12 +87,14 @@ bool readFile(string filename, vector<string> & vec) {
  * -  pass by reference (e.g. vector<string> & v0),
  * -  pass by value (e.g. vector<string> v0),
  * -  pass by const reference (e.g. const vector<string> & v0),
+ * @return bool: indicates whether operation succeeded or not.
  */
-void writeFile(string filename, vector<string> v0, vector<string> v1){
+bool writeFile(string filename, vector<string> v0, vector<string> v1){
 
     ofstream outputFile(filename);
      if (!outputFile) {
         cout << "Error: Could not create data.csv" << endl;
+        return false;
     }
 
     // write under the structure:
@@ -102,6 +104,7 @@ void writeFile(string filename, vector<string> v0, vector<string> v1){
     }
     outputFile.close();
 
+    return true;
 }
 
 
