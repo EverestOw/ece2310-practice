@@ -85,7 +85,7 @@ bool readFile(string filename, vector<string> & vec) {
  * -  pass by const reference (e.g. const vector<string> & v0),
  * @return bool: indicates whether operation succeeded or not.
  */
-bool writeFile(string filename, vector<string> v0, vector<string> v1){
+bool writeFile(string filename, const vector<string>& v0, const vector<string>& v1){
 
     ofstream outputFile(filename);
      if (!outputFile) {
