@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include <vector>
+#include <string>
 /**
  * TO DO: 
  * Add <vector>, <cstdlib>, and <ctime>​
