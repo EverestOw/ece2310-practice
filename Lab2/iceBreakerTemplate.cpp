@@ -2,6 +2,8 @@
 #include<fstream>
 #include <vector>
 #include <string>
+#include <random>
+#include <ctime>
 /**
  * TO DO: 
  * Add <vector>, <cstdlib>, and <ctime>​
@@ -23,7 +25,7 @@ using namespace std;
 void promptFile(vector<string> &); 
 void printVec(vector<string>);
 
-int ranGen();
+int ranGen(int);
 
 bool readFile(string, vector<string> &);
 bool writeFile(string, const vector<string>&, const vector<string>&);
@@ -32,19 +34,27 @@ bool writeFile(string, const vector<string>&, const vector<string>&);
 //------------------------MAIN BODY-------------------------------------------
 int main()
 {
-    srand(time(nullptr));
+    // srand(time(nullptr));
     vector<string> roster;
     vector<string> qBank;
     // readFile("2310_F26_Rosters.csv", roster);
-    readFile("2310_F26_Rosters.csv", roster);
-    readFile("Questions.csv", qBank);
+    // readFile("Questions.csv", qBank);
     // printVec(roster);
     // printVec(qBank);
 
     // cout << "Size of roster: " << roster.size() << endl; 
     // cout << "Size of qBank: " << qBank.size() << endl;
 
-    writeFile("Student_question_bank.csv",roster, qBank);
+    // writeFile("Student_question_bank.csv",roster, qBank);
+
+    // for (size_t i = 0; i < 20; ++i) {
+    //     ranGen(5);
+    // }
+
+    for (int i = 0; i < 50; ++i)
+    {
+        cout << "test " << i << ": " << ranGen(5) << endl;
+    }
 
     return 0;
 }
@@ -77,6 +87,7 @@ void printVec(vector<string> v){
  * @brief randomly returns a number from 0 to 5.
  * - It is hardcoded to be from 0 to 5.
  * - Uses srand(nullptr) in main()
+ * @param int: upperbound
  * TO DO:
  * Modify it so that randGen() reads in 
  * the size of the questions instead of 6 (e.g. questions.size())
@@ -86,9 +97,21 @@ void printVec(vector<string> v){
  * 
  * @return int: index of question
  */
-int ranGen(){
-    int randomNumber = rand() % 6;  // 0 through 5
-    return randomNumber;
+int ranGen(int upperBound){
+
+    //  Case: non-negative integers
+    if (upperBound <= 0) {
+        throw std::invalid_argument("upperBound must be non-negative."); 
+    }
+
+    //  Random device implementation
+    random_device random = random_device();
+
+    //uniform_int_distribution numDistributor = uniform_int_distribution(0,upperBound);
+
+
+    //return numDistributor(random);
+    return random() % upperBound;
 }
 
 /**
@@ -140,7 +163,7 @@ bool writeFile(string filename, const vector<string>& v0, const vector<string>& 
     // write under the structure:
     // Student_Name, Question_#
     for(int i = 0; i < v0.size(); i++){
-        outputFile << v0[i] << "," << v1[ranGen()] << endl;
+        outputFile << v0[i] << "," << v1[ranGen(5)] << endl;
     }
     outputFile.close();
 
