@@ -39,7 +39,10 @@ int main()
     readFile("2310_F26_Rosters.csv", roster);
     readFile("Questions.csv", qBank);
 
-    writeFile("Student_question_bank.csv",roster, qBank);
+    vector<string> dummy;
+
+    writeFile("output.csv",roster, dummy);
+    // writeFile("Student_question_bank.csv",roster, qBank);
 
     return 0;
 }
@@ -132,9 +135,16 @@ bool readFile(string filename, vector<string> & vec) {
  */
 bool writeFile(string filename, const vector<string>& v0, const vector<string>& v1){
 
+    // Check for empty vector parameters
+    if (v0.size() == 0 || v1.size() == 0)
+    {
+        cerr << "Error: Empty vector supplied as argument" << endl;
+        return false;
+    }
+
     ofstream outputFile(filename);
-     if (!outputFile) {
-        cout << "Error: Could not create data.csv" << endl;
+    if (!outputFile) {
+        cerr << "Error: Could not create data.csv" << endl;
         return false;
     }
 
