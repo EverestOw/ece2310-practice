@@ -128,8 +128,8 @@ bool readFile(string filename, vector<string> & vec) {
  * @brief writes to filename with the first column from v0, second column from v1
  * 
  * @param filename: string
- * @param v0: vector<string> (for students names)
- * @param v1: vector<string> (for questions)
+ * @param v0: vector<string> (for students names). Must be non-empty
+ * @param v1: vector<string> (for questions). Must be non-empty
  * 
  * @return bool: indicates whether operation succeeded or not.
  */
