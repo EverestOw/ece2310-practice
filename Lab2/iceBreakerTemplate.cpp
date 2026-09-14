@@ -70,30 +70,25 @@ void printVec(vector<string> v){
 
 /**
  * @brief randomly returns a number from 0 to upperBound.
- * - It is hardcoded to be from 0 to 5.
- * - Uses srand(nullptr) in main()
- * @param int: upperbound
- * TO DO:
- * Modify it so that randGen() reads in 
- * the size of the questions instead of 6 (e.g. questions.size())
+ *
+ * @param upperBound: int (only positive integers)
  * 
  * TO DO:
  * Use <random> for modern C++ random generation instead 
+ * - Determine distribution type: uniform or binomial, etc
  * 
- * @return int: index of question
+ * @return int
  */
 int ranGen(int upperBound){
 
-    //  Case: non-negative integers
+    //  Case: non-positive integers
     if (upperBound <= 0) {
-        throw std::invalid_argument("upperBound must be non-negative."); 
+        throw std::invalid_argument("upperBound must be a positive integer."); 
     }
 
     //  Random device implementation
     random_device random = random_device();
 
-    //uniform_int_distribution numDistributor = uniform_int_distribution(0,upperBound);
-    //return numDistributor(random);
     return random() % upperBound;
 }
 
