@@ -23,7 +23,7 @@ using namespace std;
 
 //------------------------PROTOTYPE-------------------------------------------
 void promptFile(vector<string> &); 
-void printVec(vector<string>);
+void printVec(const vector<string> &);
 
 int ranGen(int);
 
@@ -62,7 +62,7 @@ void promptFile(vector<string> & v){
  * 
  * @param v: vector<string>
  */
-void printVec(vector<string> v){
+void printVec(const vector<string>& v){
     for(int i = 0; i < v.size(); i++){
         cout << v[i] << endl;
     }
