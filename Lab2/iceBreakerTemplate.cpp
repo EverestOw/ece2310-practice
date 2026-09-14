@@ -31,6 +31,12 @@ int main()
 
     writeFile("Student_question_bank.csv", roster, qBank);
 
+    //  Show terminal output
+    vector<string> output;
+    readFile("Student_question_bank.csv", output);
+
+    printVec(output);
+
     return 0;
 }
 
