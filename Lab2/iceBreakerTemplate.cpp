@@ -3,22 +3,12 @@
 #include <vector>
 #include <string>
 #include <random>
-#include <ctime>
 /**
  * TO DO: 
  * Add <vector>, <cstdlib>, and <ctime>​
  */
 
 using namespace std;
-
-/**
- * TO DO: 
- * Create function prototypes for all the functions.
- * Write their function declarations below mai()).
- * 
- * See promptFile(...) and printVec(...), which serve as examples.
- * 
- */
 
 
 //------------------------PROTOTYPE-------------------------------------------
@@ -39,10 +29,7 @@ int main()
     readFile("2310_F26_Rosters.csv", roster);
     readFile("Questions.csv", qBank);
 
-    vector<string> dummy;
-
-    writeFile("output.csv",roster, dummy);
-    // writeFile("Student_question_bank.csv",roster, qBank);
+    writeFile("Student_question_bank.csv", roster, qBank);
 
     return 0;
 }
