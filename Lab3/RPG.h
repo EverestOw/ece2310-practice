@@ -25,11 +25,8 @@ class RPG {
         int getLevel() const;
 
         // Mutator Functions
+        bool isAlive() const;
         void setHitsTaken(int new_hits);
-        void setSkills();
-
-        // Utility Functions
-        void printAction();
 
     private:
         std::string name;

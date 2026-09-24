@@ -1,7 +1,7 @@
 #include "RPG.h"
 #include <iostream>
 
-void displayRPGobject(const RPG &RPG_object) {
+void printRPGobject(const RPG &RPG_object) {
     printf(
         "definedPerson:\n"
         "\tName:\t %s\n"
@@ -21,10 +21,13 @@ int main() {
     RPG defaultPerson = RPG();
     RPG definedPerson = RPG("Named one", 1, 2.2, 3.3, 4);
 
-    //  Tests
-    displayRPGobject(defaultPerson);
-    std::cout << std::endl;
-    displayRPGobject(definedPerson);
+    // **Testing constructors, accessors
+    // printRPGobject(defaultPerson);
+    // std::cout << std::endl;
+    // printRPGobject(definedPerson);
+
+    // **Testing Mutators**
+    printf("Alive? :\t %b",definedPerson.isAlive());
 
     return 0;
 }

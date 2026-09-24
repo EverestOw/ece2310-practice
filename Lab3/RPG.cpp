@@ -37,3 +37,10 @@ int RPG::getLevel() const {
 }
 
 // Mutator
+void RPG::setHitsTaken(int new_hits) {
+    this->hits_taken = new_hits;
+}
+
+bool RPG::isAlive() const {
+    return this->hits_taken >= MAX_HITS_TAKEN;
+}
