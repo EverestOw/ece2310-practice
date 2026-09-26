@@ -3,13 +3,8 @@
 #include <vector>
 #include <string>
 #include <random>
-/**
- * TO DO: 
- * Add <vector>, <cstdlib>, and <ctime>​
- */
 
 using namespace std;
-
 
 //------------------------PROTOTYPE-------------------------------------------
 void promptFile(vector<string> &); 
@@ -17,7 +12,7 @@ void printVec(const vector<string> &);
 
 int ranGen(int);
 
-bool readFile(string, vector<string> &);
+bool readFile(const string&, vector<string> &);
 bool writeFile(string, const vector<string>&, const vector<string>&);
 
 
@@ -67,12 +62,8 @@ void printVec(const vector<string>& v){
 /**
  * @brief randomly returns a number from 0 to upperBound.
  *
- * @param upperBound: int (only positive integers)
- * 
- * TO DO:
- * Use <random> for modern C++ random generation instead 
- * - Determine distribution type: uniform or binomial, etc
- * 
+ * @param upperBound: int - only positive integers
+ *
  * @return int
  */
 int ranGen(int upperBound){
@@ -82,7 +73,8 @@ int ranGen(int upperBound){
         throw std::invalid_argument("upperBound must be a positive integer."); 
     }
 
-    //  Random device implementation
+    //  Pull a value from OS entropy pool.
+    //  [!] WARNING: NOT 100% PORTABLE
     random_device random = random_device();
 
     return random() % upperBound;
@@ -96,7 +88,7 @@ int ranGen(int upperBound){
  * 
  * @return bool: operation succeded.
  */
-bool readFile(string filename, vector<string> & vec) {
+bool readFile(const string& filename, vector<string> & vec) {
 
    ifstream inputFile(filename);
 
