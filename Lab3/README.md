@@ -2,4 +2,4 @@
 hello
 
 ## Terminal Output
-https://github.com/EverestOw/ece2310-practice/blob/main/Lab3/images/output.png
+![Screenshot of output. Poor Named One](https://github.com/EverestOw/ece2310-practice/blob/main/Lab3/images/output.png)
