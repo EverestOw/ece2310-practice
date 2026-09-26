@@ -27,7 +27,15 @@ int main() {
     // printRPGobject(definedPerson);
 
     // **Testing Mutators**
-    printf("Alive? :\t %b",definedPerson.isAlive());
+    printf("Alive? :\t %b\n",definedPerson.isAlive());
+    definedPerson.setHitsTaken(-1);
+    printf("Dead?:\t %b\n", definedPerson.isAlive());
+
+    definedPerson.setHitsTaken(3);
+    printf("Dead?:\t %b\n", definedPerson.isAlive());
+
+    definedPerson.setHitsTaken(4);
+    printf("Dead?:\t %b\n", definedPerson.isAlive());
 
     return 0;
 }
