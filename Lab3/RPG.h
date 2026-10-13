@@ -27,6 +27,11 @@ class RPG {
         // Mutator Functions
         bool isAlive() const;
         void setHitsTaken(int new_hits);
+        void setName(std::string name);
+        
+        void updateExpLevel();
+        void attack(RPG* opponent);
+        void printStats();
 
     private:
         std::string name;
