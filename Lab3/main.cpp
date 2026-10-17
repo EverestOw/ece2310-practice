@@ -3,7 +3,7 @@
 
 void printRPGobject(const RPG &RPG_object) {
     printf(
-        "RPG Object at 0x%X\n"
+        "RPG Object at %p\n"
         "\tName:\t %s\n"
         "\tHits Taken:\t %i\n"
         "\tLuck:\t %f\n"
@@ -27,44 +27,30 @@ int main() {
 
     std::cout << std::endl;
 
-    RPG definedPerson = RPG("Named one", 1, 2.2, 3.3, 4);
+    RPG definedPerson = RPG("Named one", 1, 200.2, 3.3, 4);
     printRPGobject(definedPerson);
 
     std::cout << std::endl;
 
     // **Testing Mutators**
-    // Event: test dummy takes 1 damage
-    printf(
-        "Testing Mutators:\n"
-        "\t%s failed their constitution roll. %s takes 1 damage!\n",
-        definedPerson.getName().c_str(),
-        definedPerson.getName().c_str()
-        );
-    definedPerson.setHitsTaken(definedPerson.getHitsTaken() + 1);
+    // setName()
+    defaultPerson.setName("Bad guy");
 
-    printf(
-        "\t%s is %s with %i hits taken.\n",
-        definedPerson.getName().c_str(),
-        definedPerson.isAlive() ? "alive" : "done for",
-        definedPerson.getHitsTaken()
-    );
+    // updateExpLevel()
+    defaultPerson.updateExpLevel();
+    definedPerson.updateExpLevel();
 
+    // Event: Attack
+    definedPerson.attack(&defaultPerson);
+    definedPerson.printStats();
     std::cout << std::endl;
+    defaultPerson.printStats();
 
-    // Event: test dummy takes 2 damage
-    printf("\t%s slipped! %s takes 2 damage!\n",
-        definedPerson.getName().c_str(),
-        definedPerson.getName().c_str()
-    );
-
-    definedPerson.setHitsTaken(definedPerson.getHitsTaken() + 2);
-
-    printf(
-        "\t%s is %s with %i hits taken.\n",
-        definedPerson.getName().c_str(),
-        definedPerson.isAlive() ? "alive" : "a goner",
-        definedPerson.getHitsTaken()
-    );
+    std::cout << "\n\nAttack round 2" << std::endl;
+    defaultPerson.attack(&definedPerson);
+    definedPerson.printStats();
+    std::cout << std::endl;
+    defaultPerson.printStats();
 
     return 0;
 }

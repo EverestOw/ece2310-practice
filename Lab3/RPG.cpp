@@ -1,4 +1,5 @@
 #include "RPG.h"
+#include <random>
 
 // Constructors
 /*
@@ -82,4 +83,64 @@ void RPG::setHitsTaken(int new_hits) {
 */
 bool RPG::isAlive() const {
     return this->hits_taken < MAX_HITS_TAKEN;
+}
+
+void RPG::setName(std::string name) { this->name = name; }
+
+/*
+* @brief increases RPG exp attribute by +50.
+*   If RPG exp passes a threshhold, increase level by 1, reset experience to 0,
+*   and increase luck by +0.1
+*/
+void RPG::updateExpLevel() {
+
+    const float EXP_THRESHOLD = 100.0;
+    const float EXP_GAIN = 50.0;
+    exp += EXP_GAIN;
+
+    const float LUCK_GAIN = 0.1;
+    if (exp >= EXP_THRESHOLD) {
+        luck += LUCK_GAIN;
+        ++level;
+
+        exp = 0.0;
+    }
+
+}
+
+void RPG::attack(RPG* const opponent) {
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<double> distribution(0.0, 1.0);
+
+    float roll = distribution(gen);
+
+    // attack sequence
+    if (roll > HIT_FACTOR * opponent->luck) {
+        opponent->setHitsTaken(opponent->getHitsTaken() + 1);
+    }
+
+
+}
+
+/*
+* @brief prints out the name, hits taken, luck, exp, level
+*   attributes of the RPG object into a single line.
+*/
+void RPG::printStats() {
+    printf(
+        "RPG Object at %p\n"
+        "\tName: %s\t"
+        "\tHits Taken: %i\t"
+        "\tLuck: %.2f\t"
+        "\tExp: %f\t"
+        "\tLevel: %i\t",
+        this,
+        name.c_str(),
+        hits_taken,
+        luck,
+        exp,
+        level
+    );
 }

@@ -7,9 +7,9 @@
 
 class Game {
     public: 
-        Game() {}
+        Game();
 
-        ~Game() {}
+        ~Game();
         // Mutators
         void generatePlayers(int num);
         int selectPlayer();
