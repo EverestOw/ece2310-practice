@@ -7,7 +7,7 @@ Game::Game()
 
 Game::~Game() {
     // TODO: dereference pointers, delete data structures
-    for (auto iter : players)
+    for (RPG* iter : players)
     {
         delete iter;
         iter = nullptr;
@@ -104,7 +104,7 @@ void Game::gameLoop() {
 };
 
 void Game::printFinalResults() {
-    for (auto player : players) {
+    for (RPG* player : players) {
         player->printStats();
         printf("\n");
     }

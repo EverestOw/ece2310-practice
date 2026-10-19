@@ -36,5 +36,12 @@ int main() {
     // printFinalResults
     gameInstance.printFinalResults();
 
+    // test destructors
+    // gameInstance.~Game();
+
+    Game* test = new Game();
+    test->generatePlayers(10);
+    delete test;
+
     return 0;
 }
