@@ -29,12 +29,9 @@ int main() {
 
     gameInstance.printFinalResults();
 
-
-
     // **Testing Mutators**
-    // battleRound
-    gameInstance.battleRound();
     // gameLoop
+    gameInstance.gameLoop();
 
     // printFinalResults
     gameInstance.printFinalResults();

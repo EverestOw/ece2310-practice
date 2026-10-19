@@ -51,6 +51,8 @@ void Game::endRound(RPG* winner, RPG* loser, int loserIndex) {
     winner->setHitsTaken(0);
     winner->updateExpLevel();
 
+    live_players.erase(loserIndex);
+
     printf("%s won against %s", winner->getName().c_str(), loser->getName().c_str());
 }
 
@@ -95,6 +97,10 @@ void Game::battleRound() {
 };
 
 void Game::gameLoop() {
+    while (live_players.size() > 1)
+    {
+        battleRound();
+    }
 };
 
 void Game::printFinalResults() {
