@@ -29,9 +29,11 @@ int main() {
     gameInstance.generatePlayers(numPlayers);
 
     // gameLoop
+    std::cout << std::endl << "---Commencing Free-for-All---\n";
     gameInstance.gameLoop();
 
     // printFinalResults
+    std::cout << std::endl << "---Final Results---\n";
     gameInstance.printFinalResults();
 
     return 0;

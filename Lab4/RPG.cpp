@@ -130,7 +130,7 @@ void RPG::attack(RPG* const opponent) {
 */
 void RPG::printStats() {
     printf(
-        "\tName: %s\t"
+        "Name: %s\t"
         "\tHits Taken: %i\t"
         "\tLuck: %.2f\t"
         "\tExp: %f\t"
