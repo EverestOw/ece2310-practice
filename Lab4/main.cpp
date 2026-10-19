@@ -21,27 +21,18 @@ void printRPGobject(const RPG &RPG_object) {
 
 int main() {
 
-    // **Testing constructors, accessors
+    // Create game object
     Game gameInstance = Game();
 
+    // Populate players into game object
     int numPlayers = 10;
     gameInstance.generatePlayers(numPlayers);
 
-    gameInstance.printFinalResults();
-
-    // **Testing Mutators**
     // gameLoop
     gameInstance.gameLoop();
 
     // printFinalResults
     gameInstance.printFinalResults();
-
-    // test destructors
-    // gameInstance.~Game();
-
-    Game* test = new Game();
-    test->generatePlayers(10);
-    delete test;
 
     return 0;
 }
