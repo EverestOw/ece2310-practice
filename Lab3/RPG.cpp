@@ -130,17 +130,17 @@ void RPG::attack(RPG* const opponent) {
 */
 void RPG::printStats() {
     printf(
-        "RPG Object at %p\n"
         "\tName: %s\t"
         "\tHits Taken: %i\t"
         "\tLuck: %.2f\t"
         "\tExp: %f\t"
-        "\tLevel: %i\t",
-        this,
+        "\tLevel: %i\t"
+        "\tStatus: %s",
         name.c_str(),
         hits_taken,
         luck,
         exp,
-        level
+        level,
+        isAlive() ? "Alive" : "Dead"
     );
 }

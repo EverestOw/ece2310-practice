@@ -51,7 +51,7 @@ void Game::endRound(RPG* winner, RPG* loser, int loserIndex) {
     winner->setHitsTaken(0);
     winner->updateExpLevel();
 
-    printf("%s won against %s", winner->getName(), loser->getName());
+    printf("%s won against %s", winner->getName().c_str(), loser->getName().c_str());
 }
 
 void Game::battleRound() {
@@ -95,10 +95,11 @@ void Game::battleRound() {
 };
 
 void Game::gameLoop() {
-
 };
 
 void Game::printFinalResults() {
-    for (auto player : players)
-    player->printStats();
+    for (auto player : players) {
+        player->printStats();
+        printf("\n");
+    }
 };
