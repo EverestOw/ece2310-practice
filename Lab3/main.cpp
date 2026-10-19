@@ -1,4 +1,5 @@
 #include "RPG.h"
+#include "Game.h"
 #include <iostream>
 
 void printRPGobject(const RPG &RPG_object) {
@@ -21,36 +22,22 @@ void printRPGobject(const RPG &RPG_object) {
 int main() {
 
     // **Testing constructors, accessors
-    printf("Testing constructors\n");
-    RPG defaultPerson = RPG();
-    printRPGobject(defaultPerson);
+    Game gameInstance = Game();
 
-    std::cout << std::endl;
+    int numPlayers = 10;
+    gameInstance.generatePlayers(numPlayers);
 
-    RPG definedPerson = RPG("Named one", 1, 200.2, 3.3, 4);
-    printRPGobject(definedPerson);
+    gameInstance.printFinalResults();
 
-    std::cout << std::endl;
+
 
     // **Testing Mutators**
-    // setName()
-    defaultPerson.setName("Bad guy");
+    // battleRound
+    gameInstance.battleRound();
+    // gameLoop
 
-    // updateExpLevel()
-    defaultPerson.updateExpLevel();
-    definedPerson.updateExpLevel();
-
-    // Event: Attack
-    definedPerson.attack(&defaultPerson);
-    definedPerson.printStats();
-    std::cout << std::endl;
-    defaultPerson.printStats();
-
-    std::cout << "\n\nAttack round 2" << std::endl;
-    defaultPerson.attack(&definedPerson);
-    definedPerson.printStats();
-    std::cout << std::endl;
-    defaultPerson.printStats();
+    // printFinalResults
+    gameInstance.printFinalResults();
 
     return 0;
 }
