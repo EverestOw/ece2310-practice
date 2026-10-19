@@ -37,7 +37,7 @@ int Game::selectPlayer() {
     std::random_device rd;
     std::mt19937 gen(rd());
 
-    std::uniform_int_distribution distribution(ulong(0), live_players.size() - 1);
+    std::uniform_int_distribution distribution(size_t(0), live_players.size() - 1);
 
     int randomIndex = distribution(gen);
 
