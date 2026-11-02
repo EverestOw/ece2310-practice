@@ -8,7 +8,7 @@ class Pokemon {
     public:
         // Constructors
         Pokemon();
-        Pokemon(std::string name, int hp, int attack, int defense,
+        Pokemon(std::string name, int hp, int att, int def,
                 std::vector<std::string> type);
         
         // Utility Functions
