@@ -3,7 +3,7 @@
 
 #include "Pokemon.h"
 
-class Charmander : Pokemon {
+class Charmander : public Pokemon {
     public:
         // Constructors
         Charmander();

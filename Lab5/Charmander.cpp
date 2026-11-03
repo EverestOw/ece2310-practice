@@ -13,8 +13,9 @@ Charmander::Charmander() : Pokemon() {
 Charmander::Charmander(std::string name, int hp, int att, int def,
                    std::vector<std::string> type,
                    std::vector<std::string> skills)
-    : Pokemon(name, hp, att, def, type), skills(skills) 
-    {}
+    : Pokemon(name, hp, att, def, type), skills(skills) {
+    std::cout << "Log: Overloaded Constructor of Class Charmander\n";
+    }
 
 
 

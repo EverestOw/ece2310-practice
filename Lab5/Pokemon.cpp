@@ -4,7 +4,9 @@
 // Constructors
 Pokemon::Pokemon()
     : name("unindentified"), hp(0), attack(0), defense(0)
-    {}
+    {
+    printf("Log: Default Constructor of Class Pokemon\n");
+    }
 
 /*
 * @brief Overloaded constructor for Pokemon
@@ -12,7 +14,10 @@ Pokemon::Pokemon()
 Pokemon::Pokemon(std::string name, int hp, int attack, int defense,
                  std::vector<std::string> type)
                 :name(name), hp(hp), attack(attack), defense(defense),
-                 type(type) {}
+                 type(type)
+                 {
+    printf("Log: Overloaded Constructor of Class Pokemon\n");
+}
 
 // Utility
 void Pokemon::speak() { 
