@@ -12,8 +12,8 @@ class Pokemon {
                 std::vector<std::string> type);
         
         // Utility Functions
-        void speak();
-        void printStats();
+        virtual void speak();
+        virtual void printStats();
 
     protected:
         std::string name;

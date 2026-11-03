@@ -35,7 +35,7 @@ int main() {
     Pokemon* pokemonPtr = &charmeleonJr;
     Charmander* charmanderPtr = &charmeleonJr;
 
-    printHeaderLines("speak() from Pokemon pointer");
+    printHeaderLines("virtual speak() from Pokemon pointer");
     std::cout << "Pokemon::speak(): ";
     pokemonPtr->speak();
     std::cout << std::endl;
