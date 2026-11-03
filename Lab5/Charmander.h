@@ -7,8 +7,9 @@ class Charmander : Pokemon {
     public:
         // Constructors
         Charmander();
-        Charmander( std::string name, int hp, int att, int def,
-                    std::vector<std::string> skills);
+        Charmander(std::string name, int hp, int att, int def,
+                   std::vector<std::string> type,
+                   std::vector<std::string> skills);
 
         // Utility
         void speak();
