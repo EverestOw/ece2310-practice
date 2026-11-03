@@ -35,6 +35,6 @@ void Pokemon::printStats() {
             "Attack: %i\t"
             "Defense: %i\t"
             "Type: %s\n",
-            name, hp, attack, defense, typeStr
+            name.c_str(), hp, attack, defense, typeStr.c_str()
         );
 }

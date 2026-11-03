@@ -49,6 +49,7 @@ int main() {
 
     // printStats()
     printHeaderLines("Print Stats");
+    charmeleonJr.printStats();
 
     return 0;
 }
