@@ -29,7 +29,7 @@ void Charmander::printStats() {
 
     // Print Charmander class specific member variables
     std::string skillsStr;
-    for (std::string skill : skills) { skillsStr += skill; }
+    for (std::string skill : skills) { skillsStr += skill + '\t'; }
 
-    std::cout << "\tSkills: " << skillsStr << '\n';
+    std::cout << "Skills: " << skillsStr << '\n';
 }

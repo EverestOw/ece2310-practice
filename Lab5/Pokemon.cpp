@@ -27,7 +27,7 @@ void Pokemon::speak() {
 void Pokemon::printStats() {
     std::string typeStr;
     for (std::string type : type) { // note to self: disambiguate type name
-        typeStr += type;
+        typeStr += type + '\t';
     }
 
     printf("Name: %s\t"
