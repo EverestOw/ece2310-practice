@@ -6,7 +6,8 @@ Welcome to the Kanto Region
 
 ## 
 ![Squirtle are vegetarians aren't they?](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEPhdqbhOukdwV_nzfZVnH0CS6aN1IoKRI8z3X38FWzSy7s1G4ngYBXPKl&s=10)
-*Squirtles not included*
+<br>
+<p align="center"><i>Squirtles not included</i></p>
 
 ## TODO
 - [X] Implement base class Pokemon
